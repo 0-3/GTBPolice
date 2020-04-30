@@ -76,7 +76,7 @@ public class Police extends JavaPlugin {
 
         // Set up the recipes
         registerRecipe(Material.STICK);
-        registerRecipe(Material.SNOW_BALL);
+        registerRecipe(Material.SNOWBALL);
         registerRecipe(Material.STRING);
 
         // Set up the regen task

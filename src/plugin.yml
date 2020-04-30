@@ -2,6 +2,7 @@ name: Police
 main: com.sucy.police.Police
 version: 1.0
 author: Eniripsa96
+api-version: 1.15
 
 commands:
   record:

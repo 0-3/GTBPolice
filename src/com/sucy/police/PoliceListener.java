@@ -343,7 +343,7 @@ public class PoliceListener implements Listener {
 
             // Provide a book when needed
             if (report.getState() == ProgressState.REPORT) {
-                ItemStack book = new ItemStack(Material.BOOK_AND_QUILL);
+                ItemStack book = new ItemStack(Material.WRITABLE_BOOK);
                 player.getInventory().addItem(book);
             }
 
@@ -467,8 +467,7 @@ public class PoliceListener implements Listener {
         // Stun effect upon logging out
         if (isStunned(event.getPlayer())) {
             Block block = event.getPlayer().getLocation().getBlock();
-            block.setType(Material.WOOL);
-            block.setData((byte) 14);
+            block.setType(Material.RED_WOOL);
             stunBlocks.put(block.getLocation(), event.getPlayer().getName());
         }
     }
@@ -485,7 +484,6 @@ public class PoliceListener implements Listener {
         Block block = event.getPlayer().getLocation().getBlock();
         if (stunBlocks.containsKey(block.getLocation())) {
             block.setType(Material.AIR);
-            block.setData((byte) 0);
             stunBlocks.remove(block.getLocation());
         }
 
@@ -601,7 +599,6 @@ public class PoliceListener implements Listener {
     public void clearBlocks() {
         for (Location loc : stunBlocks.keySet()) {
             loc.getBlock().setType(Material.AIR);
-            loc.getBlock().setData((byte)0);
         }
     }
 
@@ -642,7 +639,7 @@ public class PoliceListener implements Listener {
 
         // Stun grenades
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.RIGHT_CLICK_AIR) {
-            if (event.getPlayer().getItemInHand().getType() == Material.SNOW_BALL && event.getPlayer().hasPermission(PermissionNodes.STUN)
+            if (event.getPlayer().getItemInHand().getType() == Material.SNOWBALL && event.getPlayer().hasPermission(PermissionNodes.STUN)
                     && event.getPlayer().getItemInHand().containsEnchantment(Enchantment.ARROW_KNOCKBACK)) {
                 addMeta = true;
             }

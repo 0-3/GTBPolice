@@ -63,10 +63,10 @@ public class Config {
     public void reloadConfig() {
         fileConfiguration = YamlConfiguration.loadConfiguration(configFile);
         InputStream defConfigStream = plugin.getResource(fileName);
-        if (defConfigStream != null) {
+        /*if (defConfigStream != null) {
             YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
             fileConfiguration.setDefaults(defConfig);
-        }
+        }*/
     }
 
     /**
